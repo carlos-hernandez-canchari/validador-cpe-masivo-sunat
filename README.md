@@ -36,7 +36,7 @@ El script lee una plantilla Excel, obtiene el token OAuth2, envía consultas ind
 | **C3** | RUC del consultante |
 | **E3** | Client ID |
 | **I3** | Client Secret |
-| **B–G (desde fila 7)** | RUC, Tipo, Serie, Número, Fecha, Monto en moneda original|
+| **B–G (desde fila 7)** | RUC, Tipo de comprobante, Serie, Número, Fecha de emisión, Monto en moneda original|
 
 El script genera la respuesta en las columnas **H–K**.
 
