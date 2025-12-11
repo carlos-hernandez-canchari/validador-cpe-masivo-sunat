@@ -4,9 +4,6 @@ Este proyecto permite validar **comprobantes electrónicos de manera masiva** ut
 El script lee una plantilla Excel, obtiene el token OAuth2, envía consultas individuales, maneja reintentos automáticos y escribe los resultados en el mismo archivo.
 
 📅 **Versión funcional:** 11/12/2025  
-👨‍💻 **Autor:** Carlos Hernández Canchari  
-🔗 **LinkedIn:** https://www.linkedin.com/in/carloshernandezcanchari  
-🐙 **GitHub:** https://github.com/carlos-hernandez-canchari  
 
 ---
 
@@ -20,7 +17,7 @@ El script lee una plantilla Excel, obtiene el token OAuth2, envía consultas ind
   - Serie  
   - Número  
   - Fecha de emisión  
-  - Monto total  
+  - Monto total en moneda original
 - Manejo de errores y **reintentos automáticos** cuando la API no responde.
 - Omitir filas vacías automáticamente.
 - Escritura de resultados en las columnas:
@@ -39,7 +36,7 @@ El script lee una plantilla Excel, obtiene el token OAuth2, envía consultas ind
 | **C3** | RUC del consultante |
 | **E3** | Client ID |
 | **I3** | Client Secret |
-| **B–G (desde fila 7)** | RUC, Tipo, Serie, Número, Fecha, Monto |
+| **B–G (desde fila 7)** | RUC, Tipo, Serie, Número, Fecha, Monto en moneda original|
 
 El script genera la respuesta en las columnas **H–K**.
 
@@ -49,10 +46,11 @@ El script genera la respuesta en las columnas **H–K**.
 
 Instalar dependencias:
 
-```bash
 pip install pandas requests openpyxl
 
-▶️ Ejecución
+---
+
+## ▶️ Ejecución
 
 Configurar la ruta del archivo Excel:
 
@@ -60,26 +58,29 @@ EXCEL_PATH = r"Ruta de Plantilla"
 
 Ejecutar el script:
 
-python Validador CPE Masivo - API SUNAT.py
+python "Validador CPE Masivo - API SUNAT.py"
 
 El archivo Excel se actualizará automáticamente y se abrirá al concluir el proceso.
 
-🔐 Credenciales SUNAT
+---
+
+## 🔐 Credenciales SUNAT
 
 El Client ID y Client Secret se obtienen desde el portal de SUNAT.
 
-Manual oficial (hojas 3–5):
+📘 **Manual oficial (hojas 3–5):**  
 https://cpe.sunat.gob.pe/sites/default/files/inline-files/Manual-de-Consulta-Integrada-de-Comprobante-de-Pago-por-ServicioWEB_v2_0.pdf
 
-⚠️ Notas importantes
+---
 
-El script solo reintenta las filas con error, sin repetir filas ya procesadas.
+## ⚠️ Notas importantes
 
-Se limpia el contenido de H–K cuando la fila está vacía.
+- El script solo reintenta las filas con error, sin repetir filas ya procesadas.  
+- Se limpia el contenido de **H–K** cuando la fila está vacía.  
+- La ejecución finaliza únicamente cuando todas las filas han sido procesadas exitosamente.
 
-La ejecución finaliza únicamente cuando todas las filas han sido procesadas exitosamente.
+---
 
-📜 Licencia
+## 📜 Licencia
 
-Proyecto distribuido bajo la licencia MIT.
-
+Proyecto distribuido bajo la licencia **MIT**.
